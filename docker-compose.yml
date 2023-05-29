@@ -1,0 +1,33 @@
+version: '3'
+networks:
+  dev-network:
+    driver: bridge
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongodb
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/chat
+    depends_on:
+      - mongodb
+    networks:
+      - dev-network
+
+  mongo:
+    image: arm64v8/mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data_container:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=superAdmin
+      - MONGO_INITDB_ROOT_PASSWORD=XSV2SCZEp5315UgP
+    networks:
+      - dev-network
+
+volumes:
+  mongodb_data_container:
