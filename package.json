@@ -21,9 +21,11 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@google-cloud/pubsub": "^3.7.1",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^2.1.0",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/cqrs": "^10.0.0",
     "@nestjs/jwt": "^8.0.1",
     "@nestjs/mapped-types": "*",
     "@nestjs/mongoose": "^9.1.1",
